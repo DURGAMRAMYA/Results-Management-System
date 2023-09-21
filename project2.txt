@@ -1,0 +1,716 @@
+from tkinter import *
+from tkinter import messagebox
+import csv
+import pandas as pd
+dir='C:/Users/NITHIN M C/PycharmProjects/my project/marks1.csv'
+df=pd.read_csv(dir)
+df.set_index('Ad.No',inplace=True)
+w = Tk()
+w.title('RESULTS FORM')
+w.geometry('900x750')
+w.resizable(0, 0)
+str1=''
+str2=''
+str3=''
+str4=''
+v1 = IntVar(w)
+v2 = StringVar(w)
+v3 = StringVar(w)
+v4 = StringVar(w)
+v5 = StringVar(w)
+v6 = StringVar(w)
+v7 = StringVar(w)
+v8 = StringVar(w)
+v9 = StringVar(w)
+v10 = StringVar(w)
+v11 = StringVar(w)
+v12 = StringVar(w)
+v13 = StringVar(w)
+v14 = StringVar(w)
+v15 = StringVar(w)
+v16 = StringVar(w)
+v17 = StringVar(w)
+v18 = StringVar(w)
+v19 = StringVar(w)
+v20 = StringVar(w)
+v21 = StringVar(w)
+v22 = StringVar(w)
+v23 = StringVar(w)
+Lb1 = Label(w, text='RESULTS FORM', font=('Algerian', 25, 'bold'), fg='brown')
+Lb1.place(x=300, y=0)
+Lb2 = Label(w, text='***Incorrect Login Credentials, Try Again', font=('calibri', 15), fg='red')
+Lb3 = Label(w, text='Select Your LOGIN to proceed:', font=('calibri', 15),fg='green')
+Lb4 = Label(w, text='***Incorrect Student ID', font=('calibri', 15),fg='red')
+Lb5 = Label(w, text='***Enter Valid Marks', font=('calibri', 15),fg='red')
+Lb6 = Label(w, text='Update Marks :', font=('calibri', 15,'bold'),fg='brown')
+Lb7 = Label(w, text='', font=('calibri', 15,'bold'),fg='brown')#For printing Student ID in Staff
+Lb8 = Label(w, text='', font=('calibri', 15,'bold'),fg='brown')#For printing Subject ID in Staff
+Lb9 = Label(w, text='', font=('calibri', 12),bg='white')#For printing Marks in Student
+e1 = Entry(w, textvariable=v2, width=20, font=('calibri', 13))
+e2 = Entry(w, textvariable=v3, width=20, font=('calibri', 13), show='*')
+e3 = Entry(w, textvariable=v4, width=20, font=('calibri', 13))
+e4 = Entry(w, textvariable=v5, width=20, font=('calibri', 15))
+e6 = Entry(w, textvariable=v6, width=20, font=('calibri', 15), show='*')
+e7 = Entry(w, textvariable=v7, width=10, font=('calibri', 15))
+e8 = Entry(w, textvariable=v8, width=10, font=('calibri', 15))
+e9 = Entry(w, textvariable=v9, width=10, font=('calibri', 15))
+e10 = Entry(w, textvariable=v10, width=10, font=('calibri', 15))
+e11 = Entry(w, textvariable=v11, width=10, font=('calibri', 15))
+e12 = Entry(w, textvariable=v12, width=10, font=('calibri', 15))
+e13 = Entry(w, textvariable=v13, width=10, font=('calibri', 15))
+e14 = Entry(w, textvariable=v14, width=10, font=('calibri', 15))
+e15 = Entry(w, textvariable=v15, width=10, font=('calibri', 15))
+e16 = Entry(w, textvariable=v16, width=10, font=('calibri', 15))
+e17 = Entry(w, textvariable=v17, width=15, font=('calibri', 15))
+e18 = Entry(w, textvariable=v18, width=15, font=('calibri', 15))
+e19 = Entry(w, textvariable=v19, width=15, font=('calibri', 15))
+e20 = Entry(w, textvariable=v20, width=15, font=('calibri', 15))
+e21 = Entry(w, textvariable=v21, width=20, font=('calibri', 13))
+e22 = Entry(w, textvariable=v22, width=20, font=('calibri', 13), show='*')
+e23 = Entry(w, textvariable=v23, width=20, font=('calibri', 13))
+l1 = Label(w, text='Enter your Staff ID :', font=('Calibri', 15), fg='blue')
+l2 = Label(w, text='Enter your Password :', font=('calibri', 15), fg='blue')
+l3 = Label(w, text='Enter Your Student ID :', font=('calibri', 15), fg='blue')
+l4 = Label(w, text='Enter your Password :', font=('calibri', 15), fg='blue')
+l5 = Label(w, text='Enter your New Password :', font=('calibri', 15), fg='blue')
+l6 = Label(w, text='Enter the Details of New Student :', font=('calibri', 18,'bold'), fg='blue')
+l7 = Label(w, text='Ad.No :', font=('calibri', 15,'bold'))
+l8 = Label(w, text='NAME :', font=('calibri', 15,'bold'))
+l9 = Label(w, text='BRANCH :', font=('calibri', 15,'bold'))
+l10 = Label(w, text='ENTER MARKS :', font=('calibri', 15,'bold'))
+l11 = Label(w, text='1st SEM :', font=('calibri', 15,'bold'))
+l12 = Label(w, text='Subject-1 :', font=('calibri', 15))
+l13 = Label(w, text='Subject-2 :', font=('calibri', 15))
+l14 = Label(w, text='Subject-3 :', font=('calibri', 15))
+l15 = Label(w, text='Subject-4 :', font=('calibri', 15))
+l16 = Label(w, text='Subject-5 :', font=('calibri', 15))
+l17 = Label(w, text='2nd SEM :', font=('calibri', 15,'bold'))
+l18 = Label(w, text='Subject-1 :', font=('calibri', 15))
+l19 = Label(w, text='Subject-2 :', font=('calibri', 15))
+l20 = Label(w, text='Subject-3 :', font=('calibri', 15))
+l21 = Label(w, text='Subject-4 :', font=('calibri', 15))
+l22 = Label(w, text='Subject-5 :', font=('calibri', 15))
+l23 = Label(w, text='Initial Password :', font=('calibri', 15,'bold'))
+lab1 = Label(w, text='Administration Staff Login :', font=('Calibri', 18,'bold'), fg='grey')
+lab2 = Label(w, text='Enter student ID :', font=('Calibri', 18,'bold'))
+lab3 = Label(w, text='Enter Marks to update :', font=('Calibri', 15,'bold'))
+lab4 = Label(w, text='', font=('Calibri', 18,'bold'), fg='grey')#To display Student ID in student
+lab5 = Label(w, text='SEM - 1', font=('Calibri', 18,'bold'), fg='grey')
+lab6 = Label(w, text='SEM - 2', font=('Calibri', 18,'bold'), fg='grey')
+lab7 = Label(w, text='Enter Your Admin ID :', font=('Calibri', 15), fg='blue')
+lab8 = Label(w, text='Enter Your Password :', font=('Calibri', 15), fg='blue')
+lab9 = Label(w, text='Enter the Branch To See results :', font=('Calibri', 15,'bold'), fg='blue')
+lab10 = Label(w, text='BRANCH-WISE RESULTS :', font=('Calibri', 20,'bold'), fg='blue')
+lab11 = Label(w, text='', font=('Calibri', 12,'bold'), bg='white')
+lab12 = Label(w, text='***Enter Correct Branch Code', font=('Calibri', 15), fg='red')
+def stf():
+    v2.set('')
+    v3.set('')
+    v21.set('')
+    v22.set('')
+    l3.place_forget()
+    l4.place_forget()
+    b2.place_forget()
+    Lb2.place_forget()
+    l1.place(x=0,y=170)
+    l2.place(x=0,y=200)
+    e1.place(x=200,y=170)
+    e2.place(x=200,y=200)
+    b1.place(x=350,y=280)
+def sdt():
+    v2.set('')
+    v3.set('')
+    v21.set('')
+    v22.set('')
+    l1.place_forget()
+    l2.place_forget()
+    b1.place_forget()
+    Lb2.place_forget()
+    lab7.place_forget()
+    lab8.place_forget()
+    e21.place_forget()
+    e22.place_forget()
+    adbut.place_forget()
+    l3.place(x=0,y=170)
+    l4.place(x=0,y=200)
+    e1.place(x=200,y=170)
+    e2.place(x=200,y=200)
+    b2.place(x=350,y=280)
+def adminstr():
+    v2.set('')
+    v3.set('')
+    v21.set('')
+    v22.set('')
+    l1.place_forget()
+    l2.place_forget()
+    b1.place_forget()
+    l3.place_forget()
+    l4.place_forget()
+    b2.place_forget()
+    Lb2.place_forget()
+    e1.place_forget()
+    e2.place_forget()
+    lab7.place(x=0,y=170)
+    lab8.place(x=0,y=200)
+    e21.place(x=200,y=170)
+    e22.place(x=200,y=200)
+    adbut.place(x=350,y=280)
+def admpr():
+    lab9.place(x=0,y=200)
+    e23.place(x=300,y=200)
+    adbut2.place(x=250,y=260)
+    adbut3.place(x=50,y=100)
+    lab10.place(x=150,y=50)
+def adminlg():
+    adid='hod'
+    adp='department'
+    a=v21.get()
+    b=v22.get()
+    if a==adid and b==adp :
+        lab7.place_forget()
+        lab8.place_forget()
+        e21.place_forget()
+        e22.place_forget()
+        adbut.place_forget()
+        rb1.place_forget()
+        rb2.place_forget()
+        rb3.place_forget()
+        Lb3.place_forget()
+        admpr()
+    else:
+        Lb2.place(x=50,y=350)
+def adminlg2():
+    lab9.place_forget()
+    e23.place_forget()
+    adbut2.place_forget()
+    adbut3.place_forget()
+    lab10.place_forget()
+    br=v23.get()
+    global str4
+    global lab11
+    ss1=''
+    ss2=''
+    li=[]
+    li2=[]
+    li3=['CSE','CIVIL','ECE','EEE','MECH','CHE']
+    if br not in li3:
+        lab12.place(x=100,y=300)
+        v23.set('')
+        admpr()
+    else:
+        lab12.place_forget()
+        with open(dir, 'r') as file:
+            csv_file = csv.DictReader(file)
+            for row in csv_file:
+                d = dict(row)
+                if d['Branch']==br:
+                    if (int(df.at[d['Ad.No'],'Se1S1'][:2])>35) and (int(df.at[d['Ad.No'],'Se1S2'][:2])>35) and (int(df.at[d['Ad.No'],'Se1S3'][:2])>35) and (int(df.at[d['Ad.No'],'Se1S4'][:2])>35) and (int(df.at[d['Ad.No'],'Se1S5'][:2])>35):
+                        li.append(d['Ad.No'])
+                    else:
+                        li2.append(d['Ad.No'])
+        for i in li:
+            ss1+=i+'\n'
+        for i in li2:
+            ss2+=i+'\n'
+        str4='Passed :\n'+ss1+'\nFailed :\n'+ss2
+        lab11 = Label(w, text=str4, font=('Calibri', 12), bg='white')
+        lab11.place(x=200,y=100)
+        adbut4.place(x=350,y=150)
+def adminlgback():
+    lab9.place_forget()
+    e23.place_forget()
+    adbut2.place_forget()
+    adbut3.place_forget()
+    lab10.place_forget()
+    start()
+def adminlgback2():
+    adbut4.place_forget()
+    lab11.place_forget()
+    v23.set('')
+    admpr()
+adbut = Button(w,text='ENTER',font=('Algerian', 20,'bold'),fg='brown',bg='wheat',border=3,command=adminlg)
+adbut2 = Button(w,text='SUBMIT',font=('calibri', 15,'bold'),fg='brown',bg='wheat',border=3,command=adminlg2)
+adbut3 = Button(w,text='<-Exit',font=('calibri', 12,'bold'),fg='red',bg='wheat',command=adminlgback)
+adbut4 = Button(w,text='OK',font=('calibri', 15,'bold'),fg='blue',bg='wheat',command=adminlgback2)
+rb1 = Radiobutton(w, text='Staff Login', variable=v1, value=0, font=('Calibri', 16), command=stf)
+rb2 = Radiobutton(w, text='Student Login', variable=v1, value=1, font=('Calibri', 16), command=sdt)
+rb3 = Radiobutton(w, text='Administrator Login', variable=v1, value=2, font=('Calibri', 16), command=adminstr)
+def qw():
+    b3.place(x=250, y=120)
+    b4.place(x=250, y=170)
+    b5.place(x=250, y=220)
+def ent1():
+    sid = 'jntua'
+    pw = 'university'
+    e = v2.get()
+    f = v3.get()
+    if e == sid and f == pw :
+        Lb2.place_forget()
+        Lb3.place_forget()
+        l1.place_forget()
+        l2.place_forget()
+        e1.place_forget()
+        e2.place_forget()
+        b1.place_forget()
+        rb1.place_forget()
+        rb2.place_forget()
+        rb3.place_forget()
+        lab1.place(x=0,y=50)
+        qw()
+    else:
+        Lb2.place(x=50, y=350)
+def qe():
+    lab2.place(x=50,y=200)
+    e3.place(x=250,y=205)
+    b6.place(x=190,y=270)
+    b7.place(x=30,y=130)
+    Lb6.place(x=30,y=90)
+def upm():
+    b3.place_forget()
+    b4.place_forget()
+    b5.place_forget()
+    qe()
+def bac():
+    v4.set('')
+    lab2.place_forget()
+    e3.place_forget()
+    b6.place_forget()
+    b7.place_forget()
+    Lb4.place_forget()
+    Lb6.place_forget()
+    ent1()
+def qr():
+    b8.place(x=100,y=200)
+    b9.place(x=100,y=300)
+    b10.place(x=30,y=130)
+    Lb7.place(x=200,y=90)
+def upd():
+    a = v4.get()
+    tv = 0
+    global Lb7
+    Lb7 = Label(w, text=a+' :', font=('calibri', 15,'bold'),fg='brown')
+    with open(dir, 'r') as file:
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
+            d = dict(row)
+            if d['Ad.No'] == a:
+                tv = 1
+                Lb4.place_forget()
+                lab2.place_forget()
+                e3.place_forget()
+                b6.place_forget()
+                b7.place_forget()
+                Lb4.place_forget()
+                qr()
+        else:
+            if tv == 0 :
+                Lb4.place(x=50,y=350)
+def sem1():
+    bt6.place_forget()
+    bt7.place_forget()
+    bt8.place_forget()
+    bt9.place_forget()
+    bt10.place_forget()
+    bt1.place(x=300,y=150)
+    bt2.place(x=300,y=200)
+    bt3.place(x=300,y=250)
+    bt4.place(x=300,y=300)
+    bt5.place(x=300,y=350)
+def sem2():
+    bt1.place_forget()
+    bt2.place_forget()
+    bt3.place_forget()
+    bt4.place_forget()
+    bt5.place_forget()
+    bt6.place(x=300,y=150)
+    bt7.place(x=300,y=200)
+    bt8.place(x=300,y=250)
+    bt9.place(x=300,y=300)
+    bt10.place(x=300,y=350)
+def bac2():
+    v4.set('')
+    b8.place_forget()
+    b9.place_forget()
+    b10.place_forget()
+    bt1.place_forget()
+    bt2.place_forget()
+    bt3.place_forget()
+    bt4.place_forget()
+    bt5.place_forget()
+    bt6.place_forget()
+    bt7.place_forget()
+    bt8.place_forget()
+    bt9.place_forget()
+    bt10.place_forget()
+    Lb7.place_forget()
+    qe()
+def mar():
+    global Lb8
+    Lb8 = Label(w, text=str1+' :', font=('calibri', 15,'bold'),fg='brown')
+    Lb8.place(x=300,y=90)
+    b8.place_forget()
+    b9.place_forget()
+    b10.place_forget()
+    bt1.place_forget()
+    bt2.place_forget()
+    bt3.place_forget()
+    bt4.place_forget()
+    bt5.place_forget()
+    bt6.place_forget()
+    bt7.place_forget()
+    bt8.place_forget()
+    bt9.place_forget()
+    bt10.place_forget()
+    lab3.place(x=0,y=200)
+    e4.place(x=225,y=205)
+    but.place(x=180,y=270)
+    but2.place(x=50,y=150)
+    v5.set('')
+def m1():
+    global str1
+    str1='Se1S1'
+    mar()
+def m2():
+    global str1
+    str1='Se1S2'
+    mar()
+def m3():
+    global str1
+    str1='Se1S3'
+    mar()
+def m4():
+    global str1
+    str1='Se1S4'
+    mar()
+def m5():
+    global str1
+    str1='Se1S5'
+    mar()
+def m6():
+    global str1
+    str1='Se2S1'
+    mar()
+def m7():
+    global str1
+    str1='Se2S2'
+    mar()
+def m8():
+    global str1
+    str1='Se2S3'
+    mar()
+def m9():
+    global str1
+    str1='Se2S4'
+    mar()
+def m10():
+    global str1
+    str1='Se2S5'
+    mar()
+def bac3():
+    lab3.place_forget()
+    e4.place_forget()
+    but.place_forget()
+    but2.place_forget()
+    Lb5.place_forget()
+    Lb8.place_forget()
+    qr()
+def mark():
+    a=v4.get()
+    b=v5.get()
+    if b[:2].isnumeric() and int(b[:2])<100 :
+        df.at[a,str1]=b
+        df.to_csv(dir)
+        messagebox.showinfo('MARKS UPDATE','Marks Updated Successfully')
+        bac3()
+    else:
+        Lb5.place(x=50,y=400)
+def ext():
+    b3.place_forget()
+    b4.place_forget()
+    b5.place_forget()
+    lab1.place_forget()
+    start()
+def adst():
+    b3.place_forget()
+    b4.place_forget()
+    b5.place_forget()
+    l6.place(x=100,y=100)
+    l7.place(x=150,y=150)
+    e17.place(x=300,y=150)
+    l8.place(x=150,y=180)
+    e18.place(x=300,y=180)
+    l9.place(x=150,y=210)
+    e19.place(x=300,y=210)
+    l10.place(x=150,y=240)
+    l11.place(x=150,y=270)
+    l12.place(x=180,y=300)
+    l13.place(x=180,y=330)
+    l14.place(x=180,y=360)
+    l15.place(x=180,y=390)
+    l16.place(x=180,y=420)
+    e7.place(x=300,y=300)
+    e8.place(x=300,y=330)
+    e9.place(x=300,y=360)
+    e10.place(x=300,y=390)
+    e11.place(x=300,y=420)
+    l17.place(x=450,y=270)
+    l18.place(x=480,y=300)
+    l19.place(x=480,y=330)
+    l20.place(x=480,y=360)
+    l21.place(x=480,y=390)
+    l22.place(x=480,y=420)
+    e12.place(x=600,y=300)
+    e13.place(x=600,y=330)
+    e14.place(x=600,y=360)
+    e15.place(x=600,y=390)
+    e16.place(x=600,y=420)
+    l23.place(x=150,y=470)
+    e20.place(x=300,y=470)
+    b11.place(x=380,y=530)
+    b12.place(x=30,y=90)
+def back3():
+    v7.set('')
+    v8.set('')
+    v9.set('')
+    v10.set('')
+    v11.set('')
+    v12.set('')
+    v13.set('')
+    v14.set('')
+    v15.set('')
+    v16.set('')
+    v17.set('')
+    v18.set('')
+    v19.set('')
+    v20.set('')
+    b12.place_forget()
+    l6.place_forget()
+    l7.place_forget()
+    e17.place_forget()
+    l8.place_forget()
+    e18.place_forget()
+    l9.place_forget()
+    e19.place_forget()
+    l10.place_forget()
+    l11.place_forget()
+    l12.place_forget()
+    l13.place_forget()
+    l14.place_forget()
+    l15.place_forget()
+    l16.place_forget()
+    e7.place_forget()
+    e8.place_forget()
+    e9.place_forget()
+    e10.place_forget()
+    e11.place_forget()
+    l17.place_forget()
+    l18.place_forget()
+    l19.place_forget()
+    l20.place_forget()
+    l21.place_forget()
+    l22.place_forget()
+    e12.place_forget()
+    e13.place_forget()
+    e14.place_forget()
+    e15.place_forget()
+    e16.place_forget()
+    l23.place_forget()
+    e20.place_forget()
+    b11.place_forget()
+    b12.place_forget()
+    qw()
+def addst():
+    b=0
+    with open(dir, 'r') as file:
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
+            b=b+1
+        b=b+1
+        file.close()
+    a=v17.get()
+    c=v18.get()
+    d=v7.get()
+    e=v8.get()
+    f=v9.get()
+    g=v10.get()
+    h=v11.get()
+    i=v12.get()
+    j=v13.get()
+    k=v14.get()
+    l=v15.get()
+    m=v16.get()
+    n=v19.get()
+    o=v20.get()
+    data=[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o]
+    with open(dir, 'a') as file:
+        wr = csv.writer(file)
+        wr.writerow(data)
+        file.close()
+    messagebox.showinfo('ADD STUDENT','Student Details added Successfully')
+    back3()
+def stdl():
+    lab4.place(x=30,y=50)
+    but3.place(x=200,y=170)
+    but4.place(x=200,y=220)
+    but5.place(x=200,y=270)
+def ent2():
+    global str2
+    b = v2.get()
+    str2 = v2.get()
+    c = v3.get()
+    u = 0
+    with open(dir, 'r') as file:
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
+            d = dict(row)
+            if d['Ad.No'] == b and d['Password'] == c:
+                u = 1
+                Lb2.place_forget()
+                Lb3.place_forget()
+                l3.place_forget()
+                l4.place_forget()
+                e1.place_forget()
+                e2.place_forget()
+                b2.place_forget()
+                rb1.place_forget()
+                rb2.place_forget()
+                rb3.place_forget()
+                global lab4
+                lab4 = Label(w, text='Student Login :  '+str2, font=('Calibri', 18,'bold'), fg='grey')
+                stdl()
+        else:
+            if u == 0:
+                Lb2.place(x=50, y=350)
+    file.close()
+def ext2():
+    lab4.place_forget()
+    but3.place_forget()
+    but4.place_forget()
+    but5.place_forget()
+    start()
+def pas():
+    l5.place(x=0,y=150)
+    e6.place(x=240,y=150)
+    but6.place(x=180,y=220)
+    but7.place(x=30,y=100)
+def cpw():
+    but3.place_forget()
+    but4.place_forget()
+    but5.place_forget()
+    pas()
+def passw():
+    t1 = v6.get()
+    z=v2.get()
+    df.at[z,'Password']=t1
+    df.to_csv(dir)
+    messagebox.showinfo('PASSWORD','PASSWORD changed Successfully')
+    v6.set('')
+    l5.place_forget()
+    e6.place_forget()
+    but6.place_forget()
+    but7.place_forget()
+    stdl()
+def back():
+    v6.set('')
+    l5.place_forget()
+    e6.place_forget()
+    but6.place_forget()
+    but7.place_forget()
+    stdl()
+def msem():
+    but8.place(x=30,y=100)
+    but9.place(x=200,y=200)
+    but10.place(x=200,y=300)
+def getm():
+    but3.place_forget()
+    but4.place_forget()
+    but5.place_forget()
+    msem()
+def semr1():
+    global str2
+    global str3
+    global Lb9
+    lab5.place(x=50,y=120)
+    but8.place_forget()
+    but9.place_forget()
+    but10.place_forget()
+    a = df.at[str2,'Se1S1']; a1=eval(a)*100
+    b = df.at[str2,'Se1S2']; b1=eval(b)*100
+    c = df.at[str2,'Se1S3']; c1=eval(c)*100
+    d = df.at[str2,'Se1S4']; d1=eval(d)*100
+    e = df.at[str2,'Se1S5']; e1=eval(e)*100
+    val=(a1+b1+c1+d1+e1)/5
+    str3 = 'SEM - 2'+'\n'+'Subject1 - '+a+' - '+str(a1)+'%'+'\n'+'Subject2 - '+b+' - '+str(b1)+'%'+'\n'+'Subject3 - '+c+' - '+str(c1)+'%'+'\n'+'Subject4 - '+d+' - '+str(d1)+'%'+'\n'+'Subject5 - '+e+' - '+str(e1)+'%'+'\n'+'Avg.Per - '+str(val)+'%'
+    Lb9 = Label(w, text=str3, font=('calibri', 12),bg='white')
+    Lb9.place(x=250,y=180)
+    but11.place(x=280,y=350)
+def semr2():
+    global str2
+    global str3
+    global Lb9
+    lab6.place(x=50,y=120)
+    but8.place_forget()
+    but9.place_forget()
+    but10.place_forget()
+    a = df.at[str2,'Se2S1']; a1=eval(a)*100
+    b = df.at[str2,'Se2S2']; b1=eval(b)*100
+    c = df.at[str2,'Se2S3']; c1=eval(c)*100
+    d = df.at[str2,'Se2S4']; d1=eval(d)*100
+    e = df.at[str2,'Se2S5']; e1=eval(e)*100
+    val=(a1+b1+c1+d1+e1)/5
+    str3 = 'SEM - 2'+'\n'+'Subject1 - '+a+' - '+str(a1)+'%'+'\n'+'Subject2 - '+b+' - '+str(b1)+'%'+'\n'+'Subject3 - '+c+' - '+str(c1)+'%'+'\n'+'Subject4 - '+d+' - '+str(d1)+'%'+'\n'+'Subject5 - '+e+' - '+str(e1)+'%'+'\n'+'Avg.Per - '+str(val)+'%'
+    Lb9 = Label(w, text=str3, font=('calibri', 12),bg='white')
+    Lb9.place(x=250,y=180)
+    but11.place(x=280,y=350)
+def back2():
+    but8.place_forget()
+    but9.place_forget()
+    but10.place_forget()
+    stdl()
+def done():
+    Lb9.place_forget()
+    but11.place_forget()
+    lab5.place_forget()
+    lab6.place_forget()
+    msem()
+def start():
+    v1.set('')
+    Lb3.place(x=0, y=80)
+    rb1.place(x=275, y=50)
+    rb2.place(x=275, y=80)
+    rb3.place(x=275, y=110)
+start()
+b1 = Button(w, text='ENTER', font=('algerian', 20, 'bold'), bg='wheat', fg='brown', border=3, command=ent1)
+b2 = Button(w, text='ENTER', font=('algerian', 20, 'bold'), bg='wheat', fg='brown', border=3, command=ent2)
+b3 = Button(w, text='Add New Student', font=('calibri', 15), fg='red', bg='wheat',command=adst)
+b4 = Button(w, text='Update Student Marks', font=('calibri', 15), fg='red', bg='wheat',command=upm)
+b5 = Button(w, text='EXIT', font=('calibri', 15), fg='red', bg='wheat',command=ext)
+b6 = Button(w, text='SUBMIT', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=upd)
+b7 = Button(w, text='<- Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=bac)
+b8 = Button(w, text='SEM-1', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=sem1)
+b9 = Button(w, text='SEM-2', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=sem2)
+b10 = Button(w, text='<-Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=bac2)
+b11 = Button(w, text='Add Student', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=addst)
+b12 = Button(w, text='<-Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=back3)
+bt1 = Button(w, text='Sem1 Subject-1', font=('calibri', 13), fg='brown', bg='wheat',command=m1)
+bt2 = Button(w, text='Sem1 Subject-2', font=('calibri', 13), fg='brown', bg='wheat',command=m2)
+bt3 = Button(w, text='Sem1 Subject-3', font=('calibri', 13), fg='brown', bg='wheat',command=m3)
+bt4 = Button(w, text='Sem1 Subject-4', font=('calibri', 13), fg='brown', bg='wheat',command=m4)
+bt5 = Button(w, text='Sem1 Subject-5', font=('calibri', 13), fg='brown', bg='wheat',command=m5)
+bt6 = Button(w, text='Sem2 Subject-1', font=('calibri', 13), fg='brown', bg='wheat',command=m6)
+bt7 = Button(w, text='Sem2 Subject-2', font=('calibri', 13), fg='brown', bg='wheat',command=m7)
+bt8 = Button(w, text='Sem2 Subject-3', font=('calibri', 13), fg='brown', bg='wheat',command=m8)
+bt9 = Button(w, text='Sem2 Subject-4', font=('calibri', 13), fg='brown', bg='wheat',command=m9)
+bt10 = Button(w, text='Sem2 Subject-5', font=('calibri', 13), fg='brown', bg='wheat',command=m10)
+but = Button(w, text='UPDATE', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=mark)
+but2 = Button(w, text='<-Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=bac3)
+but3 =  Button(w, text='GET MARKS', font=('calibri', 15,'bold'), fg='blue', bg='wheat',command=getm)
+but4 =  Button(w, text='Change Password', font=('calibri', 15,'bold'), fg='blue', bg='wheat',command=cpw)
+but5 =  Button(w, text='EXIT', font=('calibri', 15,'bold'), fg='red', bg='wheat',command=ext2)
+but6 =  Button(w, text='CHANGE', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=passw)
+but7 =  Button(w, text='<-Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=back)
+but8 =  Button(w, text='<-Back', font=('calibri', 12,'bold'), fg='red', bg='wheat',command=back2)
+but9 =  Button(w, text='SEM-1', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=semr1)
+but10 =  Button(w, text='SEM-2', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=semr2)
+but11 =  Button(w, text='DONE', font=('calibri', 15,'bold'), fg='brown', bg='wheat',command=done)
+w.mainloop()
